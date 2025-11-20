@@ -1,7 +1,6 @@
 React tool, testing, and development
 
-Please see notes at: 
-
+Please see notes at:
 
 In this project, I take my non-profit's landing page as example to showcase the process of CI/CD for react. The existing project uses **Next.js 15** (App Router), and language is TypeScript.
 

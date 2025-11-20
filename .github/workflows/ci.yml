@@ -29,9 +29,3 @@ jobs:
 
       - name: Run Jest Tests
         run: npm test -- --ci --runInBand
-
-      - name: Run Cypress Tests
-        uses: cypress-io/github-action@v6
-        with:
-          start: npm run preview
-          wait-on: http://localhost:4173

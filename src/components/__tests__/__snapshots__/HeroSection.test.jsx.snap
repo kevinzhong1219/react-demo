@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`HeroSection Component matches snapshot 1`] = `
+<DocumentFragment>
+  <section
+    style="padding: 24px; text-align: center;"
+  >
+    <h1>
+      Welcome to the Demo App
+    </h1>
+    <p>
+      Your playground for React testing, CI/CD, and components.
+    </p>
+  </section>
+</DocumentFragment>
+`;

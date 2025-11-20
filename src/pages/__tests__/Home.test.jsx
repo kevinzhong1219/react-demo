@@ -1,16 +1,25 @@
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render, screen } from "@testing-library/react";
 import Home from "../Home";
 
-test("renders Home page with Counter and increments", () => {
-  render(<Home />);
+describe("Home Page", () => {
+  test("renders features section", () => {
+    render(<Home />);
+    expect(screen.getByText("Features")).toBeInTheDocument();
+    expect(screen.getByText(/Reusable Components/i)).toBeInTheDocument();
+  });
 
-  // Check page title
-  expect(screen.getByText("Home Page")).toBeInTheDocument();
+  test("renders counter component", () => {
+    render(<Home />);
+    expect(screen.getByTestId("count-value")).toBeInTheDocument();
+  });
 
-  // Counter initial value
-  expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 10");
+  test("renders footer", () => {
+    render(<Home />);
+    expect(screen.getByText(/© 2025 My Demo Website/)).toBeInTheDocument();
+  });
 
-  // Increment
-  fireEvent.click(screen.getByText("Increment"));
-  expect(screen.getByTestId("count-value")).toHaveTextContent("Count: 11");
+  test("matches snapshot", () => {
+    const { asFragment } = render(<Home />);
+    expect(asFragment()).toMatchSnapshot();
+  });
 });

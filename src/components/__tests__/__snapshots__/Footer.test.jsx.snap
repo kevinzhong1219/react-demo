@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Footer Component matches snapshot 1`] = `
+<DocumentFragment>
+  <footer
+    style="padding: 12px; margin-top: 32px; background: rgb(250, 250, 250);"
+  >
+    <p>
+      © 2025 My Demo Website
+    </p>
+  </footer>
+</DocumentFragment>
+`;

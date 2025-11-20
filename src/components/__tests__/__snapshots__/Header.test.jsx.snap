@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`Header Component matches snapshot 1`] = `
+<DocumentFragment>
+  <header
+    style="padding: 16px; background: rgb(240, 240, 240);"
+  >
+    <h2>
+      My Demo Website
+    </h2>
+    <nav>
+      <a
+        href="#"
+        style="margin-right: 12px;"
+      >
+        Home
+      </a>
+      <a
+        href="#"
+        style="margin-right: 12px;"
+      >
+        About
+      </a>
+      <a
+        href="#"
+      >
+        Contact
+      </a>
+    </nav>
+  </header>
+</DocumentFragment>
+`;

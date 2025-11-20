@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`FeatureList Component matches snapshot 1`] = `
+<DocumentFragment>
+  <section
+    style="padding: 24px;"
+  >
+    <h2>
+      Features
+    </h2>
+    <ul>
+      <li>
+        ✔ Reusable Components
+      </li>
+      <li>
+        ✔ Unit Tests with Jest
+      </li>
+      <li>
+        ✔ ESLint + Prettier Integration
+      </li>
+    </ul>
+  </section>
+</DocumentFragment>
+`;

@@ -1,7 +1,27 @@
+# ============================================================
+# GitHub Actions CI Pipeline
+# ============================================================
+# This workflow runs automatically on:
+#  - Every pull request (pre-merge checks)
+#  - Pushes to main/master (post-merge CI)
+#
+# It performs:
+#  1. Dependency installation
+#  2. ESLint checks
+#  3. Jest unit tests
+#
+# Purpose:
+# Enforce code quality, prevent broken code from merging,
+# and ensure stable builds for your React project.
+# ============================================================
+
 name: CI
 
 on:
+  # Run CI on all pull requests (required for code review quality gates)
   pull_request:
+
+  # Run CI on pushes to primary branches
   push:
     branches:
       - master
@@ -9,23 +29,47 @@ on:
 
 jobs:
   build-and-test:
+    # Use the latest stable Ubuntu runner
     runs-on: ubuntu-latest
 
     steps:
+      # -------------------------------------------------------
+      # Step 1 — Checkout Repository
+      # -------------------------------------------------------
+      # Pulls your source code into the runner so actions can run
       - name: Check out code
         uses: actions/checkout@v4
 
+      # -------------------------------------------------------
+      # Step 2 — Set Up Node Environment
+      # -------------------------------------------------------
+      # Installs Node.js v20 and enables npm caching to speed up CI
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 20
           cache: "npm"
 
+      # -------------------------------------------------------
+      # Step 3 — Install Dependencies
+      # -------------------------------------------------------
+      # Equivalent to running "npm install" locally
+      # Ensures ESLint, Jest, React, and all dev tools are available
       - name: Install dependencies
         run: npm install
 
+      # -------------------------------------------------------
+      # Step 4 — Lint the Codebase
+      # -------------------------------------------------------
+      # Runs ESLint to enforce coding style and catch warnings/errors early
+      # If ESLint fails, the PR cannot merge
       - name: Run ESLint
         run: npm run lint
 
+      # -------------------------------------------------------
+      # Step 5 — Execute Jest Test Suite
+      # -------------------------------------------------------
+      # Runs unit/integration tests in CI mode with a single worker
+      # (--runInBand avoids concurrency issues; common in GitHub Actions)
       - name: Run Jest Tests
         run: npm test -- --ci --runInBand
